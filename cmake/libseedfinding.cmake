@@ -36,11 +36,11 @@ ExternalProject_Add(libseedfinding
         URL ${libseedfinding_URL}
         BUILD_IN_SOURCE 1
         CONFIGURE_COMMAND
-        cmake -DCMAKE_BUILD_TYPE=Release
+        ${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE=Release
               -DCMAKE_INSTALL_INCLUDEDIR=${libseedfinding_INCLUDE_DIR}
               -DCMAKE_INSTALL_LIBDIR=${libseedfinding_LIB_DIR}
               -DCMAKE_INSTALL_PREFIX=${libseedfinding_INSTALL}
               .
         BUILD_COMMAND
-        cmake --build . --target install
+        ${CMAKE_COMMAND} --build . --target install
         INSTALL_DIR ${ndn_INSTALL})
