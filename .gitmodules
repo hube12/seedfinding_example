@@ -1,0 +1,3 @@
+[submodule "libseedfinding"]
+	path = libseedfinding
+	url = https://github.com/Earthcomputer/libseedfinding
