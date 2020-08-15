@@ -43,4 +43,6 @@ ExternalProject_Add(libseedfinding
               .
         BUILD_COMMAND
         ${CMAKE_COMMAND} --build . --target install
-        INSTALL_DIR ${ndn_INSTALL})
+        INSTALL_COMMAND
+        cmake -E echo "Skipping install step as it was done previously."
+        INSTALL_DIR ${libseedfinding_INSTALL})
