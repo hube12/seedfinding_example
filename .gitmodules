@@ -1,3 +1,4 @@
 [submodule "libseedfinding"]
 	path = libseedfinding
 	url = https://github.com/Earthcomputer/libseedfinding
+	branch = new_cmake
