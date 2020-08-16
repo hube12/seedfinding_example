@@ -1,0 +1,2 @@
+add_executable(my_awesome_seedfinder main.cpp)
+target_link_libraries(my_awesome_seedfinder libseedfinding)

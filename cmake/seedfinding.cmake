@@ -31,7 +31,7 @@ set(libseedfinding_INCLUDE_DIR ${libseedfinding_INSTALL}/include)
 set(libseedfinding_LIB_DIR ${libseedfinding_INSTALL}/lib)
 set(libseedfinding_CMAKE_DIR ${libseedfinding_INSTALL}/cmake)
 
-ExternalProject_Add(libseedfinding
+ExternalProject_Add(seedfinding
         PREFIX libseedfinding
         URL ${libseedfinding_URL}
         BUILD_IN_SOURCE 1
@@ -40,9 +40,17 @@ ExternalProject_Add(libseedfinding
               -DCMAKE_INSTALL_INCLUDEDIR=${libseedfinding_INCLUDE_DIR}
               -DCMAKE_INSTALL_LIBDIR=${libseedfinding_LIB_DIR}
               -DCMAKE_INSTALL_PREFIX=${libseedfinding_INSTALL}
+              -DLIBSEEDFINDING_USE_CUDA=${LIBSEEDFINDING_USE_CUDA}
+              -DLIBSEEDFINDING_COMPILE=${LIBSEEDFINDING_COMPILE}
+              -DBUILD_SHARED_LIBS=${BUILD_SHARED_LIBS}
               .
         BUILD_COMMAND
         ${CMAKE_COMMAND} --build . --target install
         INSTALL_COMMAND
         cmake -E echo "Skipping install step as it was done previously."
-        INSTALL_DIR ${libseedfinding_INSTALL})
+        INSTALL_DIR ${libseedfinding_INSTALL}
+        LOG_DOWNLOAD 1
+        LOG_UPDATE 1
+        LOG_CONFIGURE 1
+        LOG_BUILD 1
+        )
